@@ -11,7 +11,9 @@ public/stylesheets/*.css
 vendor/cache
 *.swp
 coverage/
+.sass-cache/
 
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
+

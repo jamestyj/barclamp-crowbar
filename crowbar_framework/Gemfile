@@ -34,6 +34,8 @@ gem 'rails_config'
 
 gem 'jquery-rails'
 
+gem 'bootstrap-sass'
+
 group :development do
   gem "rails-erd"
 end
