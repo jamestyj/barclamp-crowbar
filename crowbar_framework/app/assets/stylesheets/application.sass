@@ -1,10 +1,19 @@
-@import bootstrap
+/**
+ * Use the `//= require` directive to include stylesheets whenever possible:
+ * it makes each stylesheet appear individually when
+ * `config.assets.debug = true` (eg. default in development mode), or when
+ * there's a trailing `?debug_assets=1` in the request URL. This makes CSS
+ * development and debugging a lot easier, especially when inspected in a tool
+ * like FireBug.
+ *
+ * If the stylesheets use variables and mixins defined elsewhere, you'll need
+ * to use the SASS `@import` directive instead.
+ */
 
-// HTML5 elements, just in case
-header, section, article, footer, nav
-  display: block
+//= require bootstrap
+//= require active_scaffold
+//= require _font-awesome
 
-// top of import list
 @import default
 @import mixins
 @import layout
@@ -12,12 +21,7 @@ header, section, article, footer, nav
 @import tables
 @import codemirror
 @import jquery_ui
-@import formtastic
-@import errors
-@import font-awesome
 
-@import variables
-//should move to network >> @import network
-
-@import active_scaffold
-
+// HTML5 elements, just in case
+header, section, article, footer, nav
+  display: block
