@@ -16,7 +16,7 @@
         "ganglia": [ "default" ],
         "logging": [ "default" ]
       },
-      "realm": "Crowbar - By selecting OK you are agreeing to the License Agreement",
+      "realm": "SUSE Cloud Admin Server",
       "web_port": 3000,
       "users": {
         "machine-install": { "password": "machine_password" },
