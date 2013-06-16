@@ -16,6 +16,10 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
   # Note: Gems are managed by Bundler.
+
+  # Load bootstrap and compass (needed for bootstrap when on Rails 2)
+  require 'compass'
+  require 'bootstrap-sass'
   
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
