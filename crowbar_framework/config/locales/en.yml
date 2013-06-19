@@ -176,7 +176,7 @@ en:
       name: Name
       group: Group
       alias: Alias  
-      hw_description: Hardware Information
+      hw_description: Information
       description: Description
       bios: BIOS
       raid: RAID
