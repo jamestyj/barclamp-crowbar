@@ -4,34 +4,33 @@
 
 %ul.buttons
   - if @node.bmc_set?
-    %li= link_to "Reboot", hit_node_path(@node.handle, 'reboot'), :class => 'button', :'data-remote' => true, :'data-confirm' => t('are_you_sure') 
-    %li= link_to "Shutdown", hit_node_path(@node.handle, 'shutdown'), :class => 'button', :'data-remote' => true, :'data-confirm' => t('are_you_sure')
-    %li= link_to "Power On", hit_node_path(@node.handle, 'poweron'), :class => 'button', :'data-remote' => true, :'data-confirm' => t('are_you_sure')
-    %li= link_to "Identify", hit_node_path(@node.handle, 'identify'), :class => 'button', :'data-remote' => true
-
-.column_50.first
-  %dl
-    = dl_item(t('model.attributes.node.name'), @node.name)
-    = dl_item(t('model.attributes.node.state'), t(@node.state, :scope => :state, :default=>@node.state.titlecase), {:class=>"node_state", :title=>"#{t('raw')}: #{@node.state}"})
-    = dl_item(t('model.attributes.node.uptime'), (@node.ready? ? @node.uptime : t('model.attributes.node.na')))
-    - if @node.switch_unit.nil?
-      = dl_item(t('model.attributes.node.switch_name_port'), "#{@node.switch_name || t('unknown') } / #{@node.switch_port || t('unknown')}")
-    - else
-      = dl_item(t('model.attributes.node.switch_name_unit_port'), link_to("#{@node.switch_name || t('unknown') } / #{@node.switch_unit || ''} / #{@node.switch_port || t('unknown')}", switch_path(:node=>@node.handle)))    
-    = dl_item(t('model.attributes.node.mac'), @node.mac || t('unknown'))
-    = dl_item(t('model.attributes.node.allocated'), (@node.allocated ? t('.active') : t('.inactive')))
-
-.column_50.last
-  %dl
-    = dl_item(t('model.attributes.node.description'), @node.description || t('model.attributes.node.description_not_set'))
-    = dl_item(t('model.attributes.node.hardware'), @node.hardware)
-    = dl_item(t('model.attributes.node.cpu'), @node.cpu)
-    = dl_item(t('model.attributes.node.memory'), format_memory(@node.memory))
-    -if options[:show].include? :raid
-      = dl_item(t('model.attributes.node.number_of_drives'), "#{@node.number_of_drives}, #{t('.raid')}: #{t('raid.'+@node.raid_set)}")
-    -else
-      = dl_item(t('model.attributes.node.number_of_drives'), "#{@node.number_of_drives}")
-    = dl_item(t('model.attributes.node.asset_tag'), @node.asset_tag)
+    %li= link_to "Reboot", hit_node_path(@node.handle, 'reboot'), :class => 'btn', :'data-remote' => true, :'data-confirm' => t('are_you_sure') 
+    %li= link_to "Shutdown", hit_node_path(@node.handle, 'shutdown'), :class => 'btn', :'data-remote' => true, :'data-confirm' => t('are_you_sure')
+    %li= link_to "Power On", hit_node_path(@node.handle, 'poweron'), :class => 'btn', :'data-remote' => true, :'data-confirm' => t('are_you_sure')
+    %li= link_to "Identify", hit_node_path(@node.handle, 'identify'), :class => 'btn', :'data-remote' => true
+.row
+  .span5
+    %dl
+      = dl_item(t('model.attributes.node.name'), @node.name)
+      = dl_item(t('model.attributes.node.state'), t(@node.state, :scope => :state, :default=>@node.state.titlecase), {:class=>"node_state", :title=>"#{t('raw')}: #{@node.state}"})
+      = dl_item(t('model.attributes.node.uptime'), (@node.ready? ? @node.uptime : t('model.attributes.node.na')))
+      - if @node.switch_unit.nil?
+        = dl_item(t('model.attributes.node.switch_name_port'), "#{@node.switch_name || t('unknown') } / #{@node.switch_port || t('unknown')}")
+      - else
+        = dl_item(t('model.attributes.node.switch_name_unit_port'), link_to("#{@node.switch_name || t('unknown') } / #{@node.switch_unit || ''} / #{@node.switch_port || t('unknown')}", switch_path(:node=>@node.handle)))    
+      = dl_item(t('model.attributes.node.mac'), @node.mac || t('unknown'))
+      = dl_item(t('model.attributes.node.allocated'), (@node.allocated ? t('.active') : t('.inactive')))
+  .span6
+    %dl
+      = dl_item(t('model.attributes.node.description'), @node.description || t('model.attributes.node.description_not_set'))
+      = dl_item(t('model.attributes.node.hardware'), @node.hardware)
+      = dl_item(t('model.attributes.node.cpu'), @node.cpu)
+      = dl_item(t('model.attributes.node.memory'), format_memory(@node.memory))
+      -if options[:show].include? :raid
+        = dl_item(t('model.attributes.node.number_of_drives'), "#{@node.number_of_drives}, #{t('.raid')}: #{t('raid.'+@node.raid_set)}")
+      -else
+        = dl_item(t('model.attributes.node.number_of_drives'), "#{@node.number_of_drives}")
+      = dl_item(t('model.attributes.node.asset_tag'), @node.asset_tag)
 
 .clear
 
@@ -62,8 +61,8 @@
 
 %ul.buttons
   - unless @node.admin?
-    %li= link_to "Hardware Update", hit_node_path(@node.handle, 'update'), :class => 'button', :'data-remote' => true, :'data-confirm' => t('.confirm_hw_update'), :title => t('.hw_update_tooltip')
-    %li= link_to "Reinstall", hit_node_path(@node.handle, 'reinstall'), :class => 'button', :'data-remote' => true, :'data-confirm' => t('.confirm_reinstall'), :title => t('.reinstall_tooltip')
+    %li= link_to "Hardware Update", hit_node_path(@node.handle, 'update'), :class => 'btn', :'data-remote' => true, :'data-confirm' => t('.confirm_hw_update'), :title => t('.hw_update_tooltip')
+    %li= link_to "Reinstall", hit_node_path(@node.handle, 'reinstall'), :class => 'btn', :'data-remote' => true, :'data-confirm' => t('.confirm_reinstall'), :title => t('.reinstall_tooltip')
     - if @node.allocated?
-      %li= link_to "Deallocate", hit_node_path(@node.handle, 'reset'), :class => 'button', :'data-remote' => true, :'data-confirm' => t('.confirm_deallocate'), :title => t('.deallocate_tooltip')
-    %li= link_to "Forget", hit_node_path(@node.handle, 'delete'), :class => 'button', :'data-remote' => true, :'data-confirm' => t('.confirm_forget'), :title => t('.forget_tooltip')
+      %li= link_to "Deallocate", hit_node_path(@node.handle, 'reset'), :class => 'btn', :'data-remote' => true, :'data-confirm' => t('.confirm_deallocate'), :title => t('.deallocate_tooltip')
+    %li= link_to "Forget", hit_node_path(@node.handle, 'delete'), :class => 'btn', :'data-remote' => true, :'data-confirm' => t('.confirm_forget'), :title => t('.forget_tooltip')
