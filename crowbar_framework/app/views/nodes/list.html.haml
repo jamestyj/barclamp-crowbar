@@ -1,4 +1,3 @@
-
 -if params[:allocated].nil?
   %h2.page-header
     = t('.title_all')
@@ -30,9 +29,10 @@
               %th= t('.bios')
             -if @options[:show].include? :raid
               %th= t('.raid')
-            %th.center 
-              Allocate? 
-              = check_box_tag 'all', 'all', false, {:onChange=>"check_all()"}
+            %th 
+              %label.checkbox.inline 
+                = check_box_tag 'all', 'all', false, {:onChange=>"check_all()"}
+                Allocate?
         %tbody
           - if @nodes.count > 0
             - @nodes.sort_by{|handle, n| n.name }.each do |handle, node|
@@ -87,4 +87,3 @@
         $(this).attr('checked', (checkbox.attr('checked') != undefined) );
     });
   }
-  
