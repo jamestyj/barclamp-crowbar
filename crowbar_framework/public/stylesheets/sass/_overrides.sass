@@ -1,3 +1,12 @@
+// New Stuff
+a.btn
+  cursor: pointer
+  &:link, &:visited
+    color: $text_color
+    text-decoration: none
+  &:hover, &:active
+    color: $link_color
+
 .navbar-static-top
   margin-bottom: 30px
 
@@ -55,6 +64,16 @@ header
           display: block
           +shadow
 
+.header-text
+  display: block
+  margin-top: 5px
+  font-size: 14px
+  font-weight: bold
+.text-center
+  text-align: center !important
+.div-center
+  margin-left: auto
+  margin-right: auto
 #nodes
   margin-top: 10px
 
@@ -66,29 +85,21 @@ header
     background-color: #eee
   tbody
     background-color: #fff
-.table-bordered 
-  thead 
-    tr 
-      th:first-child
-        width: 19px
-        text-align: right 
-  tbody 
-    tr 
-      td:first-child
-        width: 19px
-.table
   label
     font-size: 12px
     font-weight: bold
+#nodes
+  .table-bordered 
+    thead 
+      tr 
+        th:first-child
+          width: 19px
+          text-align: right 
+    tbody 
+      tr 
+        td:first-child
+          width: 19px
 
-
-.page-header
-  a
-
-.page-header
-  .form-inline
-    a
-//      margin-top: auto
 .page-header-bottom
   border-top: 1px solid #fff
   margin-bottom: 30px
@@ -105,3 +116,19 @@ dl
 
 .control-text
   padding-top: 5px
+
+.box1
+  background-color: #fff 
+  padding: 20px
+  border: 1px solid #ddd
+  +border-radius(3px)
+  margin-top: 10px
+
+
+
+
+
+
+
+
+
