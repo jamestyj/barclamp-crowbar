@@ -9,7 +9,7 @@
   - @states.each do |state, state_details|
     - nodes = state_details[:nodes]
     .column_25{:class => column_class(i+=1,4)}
-      %table.data.box{:id => "state_#{(state || t('unknown')).parameterize}"}
+      %table.table.table-bordered{:id => "state_#{(state || t('unknown')).parameterize}"}
         %thead
           %tr.state{:id=>state, :draggable=>'true' }
             %th.status
