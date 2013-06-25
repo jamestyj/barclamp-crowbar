@@ -4,6 +4,12 @@ module Sprockets
       sprockets = Sprockets::Environment.new
       sprockets.append_path 'app/assets/javascripts'
       sprockets.append_path 'app/assets/stylesheets'
+
+      # Hack to load bootstrap-sass
+      sprockets.append_path(
+        Gem::Specification::find_by_name('bootstrap-sass').gem_dir +
+        '/vendor/assets/stylesheets'
+      )
 #     sprockets.css_compressor  = YUI::CssCompressor.new
 #     sprockets.js_compressor   = YUI::JavaScriptCompressor.new
       sprockets
