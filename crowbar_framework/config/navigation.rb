@@ -3,7 +3,6 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :nodes, t('nav.nodes'), root_path do |secondary|
       secondary.item :dashboard, t('nav.dashboard'), dashboard_path()
       secondary.item :bulkedit, t('nav.list'), nodes_list_path(:allocated=>'yes') 
-      secondary.item :families, t('nav.families'), nodes_families_path if RAILS_ENV == 'development'
       # insert here for :nodes
     end
     primary.item :network, t('nav.network'), network_path do |secondary| 
