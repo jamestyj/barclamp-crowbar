@@ -8,6 +8,10 @@ gem "i18n",  "0.4.2"
 gem "json",  "1.6.1"
 gem "chef",  "10.24.4"
 
+# Needed when running in production environment
+gem "syslogger"
+gem "kwalify"
+
 group :assets do
   # Adds the Twitter bootstrap CSS and Javascript
   gem "bootstrap-sass", "2.1.1.0"
