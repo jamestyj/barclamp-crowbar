@@ -1,0 +1,6 @@
+TODO
+- Fix `rake assets:precompile`
+- Fix production mode finger-printing
+
+Adding of Sprockets mostly based on:
+http://jaredonline.github.io/blog/2012/05/16/sprockets-2-with-rails-2-dot-3/
