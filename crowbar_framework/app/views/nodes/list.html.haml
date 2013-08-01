@@ -49,7 +49,7 @@
                     %td= select_tag "node:#{node.name}:bios".to_sym, options_for_select(option_default(@options[:bios], node.bios_set, 'bios'), node.bios_set)
                   -if @options[:show].include? :raid
                     %td= select_tag "node:#{node.name}:raid".to_sym, options_for_select(option_default(@options[:raid], node.raid_set, 'raid'), node.raid_set)
-                  %td.center
+                  %td.text-center
                     -unless node.allocated
                       = check_box_tag("node:#{node.name}:allocate".to_sym, 'checked')
                     -else
@@ -64,7 +64,7 @@
                     %td= t 'na'
                   -if @options[:show].include? :raid
                     %td= t 'na'
-                  %td.center= t 'na'
+                  %td.text-center= t 'na'
           - else
             %tr
               %td{:colspan => @columns}
@@ -73,10 +73,10 @@
         - if @nodes.count > 0
           %tfoot
             %tr{ :class => cycle(:odd, :even, :name => "nodes")}
-              %td.hint{:colspan => @columns-1}
+              %td.hint{:colspan => @columns}
                 = t('note')+": "+t('.hint')
-              %td.action{:colspan => 1}
-                %input.btn.btn-success.pull-right{:type => "submit", :name => "submit", :value => 'Save'}
+              %td.action.text-center{:colspan => 1}
+                %input.btn.btn-success{:type => "submit", :name => "submit", :value => 'Save'}
 .clear
 
 :javascript
